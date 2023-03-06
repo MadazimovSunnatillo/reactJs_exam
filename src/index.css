@@ -1,0 +1,5 @@
+#showcase {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(/src/images/photo_2023-03-01_20-03-30.jpg) center / cover;
+  min-height: calc(100vh - 81px);
+}
