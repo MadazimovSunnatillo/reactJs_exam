@@ -34,6 +34,21 @@ const Jobs = () => {
       }
     })();
   };
+  const [unLike, setUnLike] = useState(0);
+  const postUnLike = (id) => {
+    (async () => {
+      try {
+        const data = await axios.put(`/jobs/unlike/${id}`);
+        console.log(data);
+        const jobs = await axios.get("/jobs");
+        setUnLike(unLike + 1);
+        setJobs(jobs?.data);
+        toast.success("Disliked");
+      } catch (error) {
+        console.log(error.response.data.msg);
+      }
+    })();
+  };
 
   return (
     <div>
@@ -65,7 +80,7 @@ const Jobs = () => {
                       {item?.likes?.length}
                     </span>
                   </button>
-                  <button className="btn btn-secondary">
+                  <button onClick={()=>postUnLike(item._id)} className="btn btn-secondary">
                     <i className="fa-solid fa-thumbs-down"></i>
                   </button>
                   <button className="btn btn-success">

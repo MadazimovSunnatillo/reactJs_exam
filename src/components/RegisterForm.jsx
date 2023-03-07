@@ -23,6 +23,7 @@ const RegisterForm = () => {
 
     if(!values.email || !values.password || !values.name || !values.confirmedPassword) 
     return toast ("Please fill all the fields! ", {type:"error"})
+    navigate("/register")
 
     if(values.password !== values.confirmedPassword) {
       return toast ("Password do not match! ", {type: "error"})
